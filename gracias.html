@@ -119,8 +119,20 @@
             menuToggle.addEventListener('click', function() {
                 menu.classList.toggle('active');
             });
-        });
-    </script>
+        
+        // Obtener el servicio de la URL si está disponible
+        const urlParams = new URLSearchParams(window.location.search);
+        const service = urlParams.get('service');
+        
+        // Si hay un servicio en la URL, actualizar el mensaje
+        if (service) {
+            const thankYouTitle = document.querySelector('.thank-you-title');
+            if (thankYouTitle) {
+                thankYouTitle.textContent = '¡Solicitud de ' + service + ' Enviada!';
+            }
+        }
+    });
+</script>
 </body>
 </html>
 

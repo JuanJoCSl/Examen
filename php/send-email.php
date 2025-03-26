@@ -30,9 +30,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     // Send the email
     if (mail($recipient, $subject, $email_content, $email_headers)) {
-        // Redirect to thank you page
-        header("Location: ../gracias.html");
-        exit;
+        // Set a 200 (okay) response code
+        http_response_code(200);
+        echo "¡Gracias! Tu mensaje ha sido enviado.";
     } else {
         // Set a 500 (internal server error) response code
         http_response_code(500);
